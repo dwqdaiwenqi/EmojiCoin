@@ -1,8 +1,5 @@
-var ConvertLib = artifacts.require("./ConvertLib.sol");
-var MetaCoin = artifacts.require("./MetaCoin.sol");
+const EmojiCoin = artifacts.require(`./EmojiCoin.sol`)
 
-module.exports = function(deployer) {
-  deployer.deploy(ConvertLib);
-  deployer.link(ConvertLib, MetaCoin);
-  deployer.deploy(MetaCoin);
-};
+module.exports = (deployer) => {
+  deployer.deploy(EmojiCoin)
+}

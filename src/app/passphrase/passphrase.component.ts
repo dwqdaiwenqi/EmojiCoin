@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MainService } from '../main.service';
+
 @Component({
   selector: 'app-passphrase',
   templateUrl: './passphrase.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PassphraseComponent implements OnInit {
 
-  constructor() { }
+  constructor(public main: MainService) {
+
+  }
 
   ngOnInit() {
+    
   }
 
 }

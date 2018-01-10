@@ -5,12 +5,15 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
+import { MainService } from './main.service';
+
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { PassphraseComponent } from './passphrase/passphrase.component';
 import { TradeComponent } from './trade/trade.component';
 import { HeaderComponent } from './header/header.component';
 import { MarketComponent } from './market/market.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { MarketComponent } from './market/market.component';
     PassphraseComponent,
     TradeComponent,
     HeaderComponent,
-    MarketComponent
+    MarketComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,11 +45,15 @@ import { MarketComponent } from './market/market.component';
       {
         'path': 'market',
         'component': MarketComponent
+      },
+      {
+        'path': 'dashboard',
+        'component': DashboardComponent
       }
     ])
   ],
   providers: [
-
+    MainService
   ],
   bootstrap: [AppComponent]
 })

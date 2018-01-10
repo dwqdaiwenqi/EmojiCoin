@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="wallet">
+  <h2>Your Emoji Coin Wallet</h2>
+  <ngx-qrcode
+      qrc-element-type="url"
+      [qrc-value] = "main.publicKey"
+      qrc-errorCorrectionLevel = "L"></ngx-qrcode>
+
+  <p class="public_address">
+    <span>{{main.publicKey}}</span>
+    <i class="fa fa-clipboard"></i>
+  </p>
+
+  <div class="balances">
+    <div class="balance">
+      <p class="title"><i class="cc ETH"></i> {{main.ethBalance}}</p>
+      <div class="wallet-actions">
+        <p>Send to address</p>
+        <input type="text" placeholder="ETH Address"/>
+        <p>Amount in ETH</p>
+        <input type="text" placeholder="Amount"/>
+        <a class="button">Send</a>
+      </div>
+    </div>
+    <div class="balance" *ngFor="let balance of main.emojis">
+      <p class="title">{{balance.symbol}} {{balance.balance}}</p>
+      <div class="wallet-actions">
+        <p>Send to address</p>
+        <input type="text" placeholder="ETH Address"/>
+        <p>Amount in {{balance.symbol}}</p>
+        <input type="text" placeholder="Amount"/>
+        <a class="button">Send</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marketplace">
+  <h2>The Emojicoin Marketplace</h2>
+  <p class="title">If the marketplace is sold out. Email hello@chriscates.ca for some Emojilove!</p>
+  <div class="items">
+    <div class="item" *ngFor="let item of main.emojis">
+      <h3>{{item.symbol}} <i class="cc ETH"></i> {{item.base_price}} ETH</h3>
+      <h4>Supply: {{item.supply}} / {{item.totalSupply}}</h4>
+      <p>Amount to purchase</p>
+      <input type="text" placeholder="Amount" [(ngModel)]="item.amount"/>
+      <a class="button" (click)="main.buyEmoji(item, item.amount)">Buy</a>
+    </div>
+  </div>
+</div>

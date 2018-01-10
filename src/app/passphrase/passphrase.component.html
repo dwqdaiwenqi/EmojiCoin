@@ -1,8 +1,21 @@
 <article>
-  <h1>Here's your passphrase</h1>
-  <h2>Use it to log back into EmojiCoin</h2>
+  <h1>emoji<span>😍 wallet</span></h1>
+  <h2>Here's your new wallet account information</h2>
+  <h3>Keep all of this in a safe place that no one can access</h3>
   <div class="bubble">
-    <p class="seed">yo i got the fat weed pass phrase</p>
-    <button routerLink="/trade">Continue</button>
+    <h3>Seed Phrase</h3>
+    <p class="seed">{{main.seedPhrase}}</p>
   </div>
+
+  <div class="bubble">
+    <h3>Public Key</h3>
+    <p class="seed">{{main.publicKey}}</p>
+  </div>
+
+  <div class="bubble">
+    <h3>Private Key</h3>
+    <p class="seed">{{main.privateKey}}</p>
+  </div>
+
+  <a class="button" routerLink="/dashboard">Continue</a>
 </article>
